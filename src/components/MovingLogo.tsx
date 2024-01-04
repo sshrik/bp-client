@@ -21,23 +21,30 @@ const Container = styled.div`
 
 const MovingLogo: React.FC<MovingLogoInterface> = (
   props: MovingLogoInterface
-) => (
-  <Container>
-    {props.clicked ? (
-      <MoveLogo className="imgSize" />
-    ) : (
-      <img
-        className="cursor imgSize"
-        src={stopLogo}
-        onClick={() => {
-          props.setClicked(true);
-          setTimeout(() => {
-            props.setClicked(false);
-          }, 3000);
-        }}
-      />
-    )}
-  </Container>
-);
+) => {
+  const { clicked, setClicked } = props;
+
+  const handleClicked = () => {
+    setClicked(true);
+    setTimeout(() => {
+      setClicked(false);
+    }, 3000);
+  }
+
+  return (
+    <Container>
+      {clicked ? (
+        <MoveLogo className="imgSize" />
+      ) : (
+        <img
+          className="cursor imgSize"
+          src={stopLogo}
+          alt="project logo"
+          onClick={handleClicked}
+        />
+      )}
+    </Container>
+  );
+}
 
 export default MovingLogo;
