@@ -123,6 +123,7 @@ export default (env, argument) => {
   const { mode } = argument;
 
   if (typeof mode === 'undefined') {
+    // eslint-disable-next-line no-console
     console.warn(
       '\x1b[1m\x1b[33m%s\x1b[0m',
       'script 에서 mode 값이 지정되지 않았습니다.(기본값: development)'
