@@ -29,16 +29,8 @@ const commonConfigs = {
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            cacheDirectory: true,
-            cacheCompression: false,
-          },
-        },
+        test: /\.[jt]sx?$/,
+        loader: 'esbuild-loader',
       },
       {
         test: /\.(png|jpg|gif|jpeg)$/,
